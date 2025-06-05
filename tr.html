@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- preline -->
+  <link href="./dist/output.css" rel="stylesheet">
+  <script src="./node_modules/preline/dist/preline.js"></script>
+
+</head>
+<body class="">
+    <!-- <img src="./dist/images/page.svg" class="object-cover "  alt=""> -->
+    <!-- <div class="">
+     
+      <span class=" w-full block bg-linear-to-r from-blue-600 to-pink-500 px-2  box-decoration-slice">
+        Hello<br />World
+      </span>
+      <span class="w-full block bg-linear-to-r from-blue-600 to-pink-500 px-2  box-decoration-clone">
+        Hello<br />World
+      </span>
+
+
+      <div class="box-border size-32 border-4 p-4 bg-blue-100"></div>
+      <div class="box-content size-32 border-4 p-4 bg-blue-100"></div>
+             
+
+      <div class="relative z-10 bg-blue-200 p-4">
+        부모 요소 (z-index: 10)
+        <div class="absolute inset-0 bg-red-500 z-20 opacity-75">
+          자식 요소 (z-index: 20)
+        </div>
+      </div>
+
+      <div class="relative z-30 mt-4 bg-green-200 p-4">
+        외부 요소 (z-index: 30) - 이 요소는 "자식 요소" 위에 나타납니다.
+      </div>
+
+      <hr class="my-8">
+
+      <div class="relative z-10 bg-blue-200 p-4 isolate"> 부모 요소 (z-index: 10)
+        <div class="absolute inset-0 bg-red-500 z-20 opacity-75">
+          자식 요소 (z-index: 20) - 이제 이 자식은 부모 요소 내에서만 z-index가 작동합니다.
+        </div>
+      </div>
+
+      <div class="relative z-30 mt-4 bg-green-200 p-4">
+        외부 요소 (z-index: 30) - 이 요소는 이제 "자식 요소" 아래로 나타납니다.
+      </div>
+    </div> -->
+
+    <!-- <div class="h-[148px] w-[300px] object-scale-down border overflow-clip">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quo optio sed alias quae sequi fugit, ea, adipisci sapiente, expedita officia. Placeat inventore corporis ipsa vitae reprehenderit quo nemo. Earum, pariatur deleniti, non quia necessitatibus ratione ab hic impedit aliquam illo ullam. Vitae aliquid unde, aspernatur, commodi repellendus similique, nam blanditiis odit et dolores eligendi. Quam labore, nesciunt provident enim culpa ratione explicabo. Tempora consequuntur natus vero asperiores, perspiciatis autem repudiandae doloribus, accusantium fugiat quod eaque, saepe quos minima dolor ipsam perferendis eius soluta distinctio deserunt? Blanditiis laborum perspiciatis voluptates corrupti tempore architecto modi tempora deserunt dolores! Quo sunt officia incidunt voluptates asperiores, dolore aliquam dignissimos praesentium sit natus obcaecati atque, odio enim, illum similique commodi ipsa ipsum hic. Iure accusantium expedita fugiat quasi, dolorem, nisi quos, repellendus culpa ad voluptatibus ratione distinctio praesentium? Sit recusandae cupiditate saepe itaque temporibus adipisci est cum ea quidem laborum eaque officia, quibusdam atque ducimus reprehenderit laudantium nulla fugit amet facilis? Voluptate magni architecto fuga nostrum accusamus quidem in repellendus praesentium soluta possimus quae vero iste excepturi quis, eum cupiditate obcaecati quisquam illo et quibusdam expedita quod. Veritatis, tempore. Veritatis, tenetur aliquam voluptas vitae earum quibusdam necessitatibus tempora commodi cumque incidunt quaerat id asperiores!
+      </p>
+    </div> -->
+
+
+    <!-- <div class="page-background h-screen overflow-y-scroll bg-gray-200">
+  <p>메인 페이지 콘텐츠...</p>
+  <p>메인 페이지 콘텐츠...</p>
+  <div class="modal-overlay fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div class="modal-content w-80 h-64 bg-white p-4 rounded-lg overflow-y-scroll overscroll-behavior-y-contain">
+      <p>모달 콘텐츠...</p>
+      <p>모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...모달 콘텐츠...</p>
+      <p>모달 콘텐츠 끝!</p>
+    </div>
+  </div>
+    </div> -->
+
+<!-- Pin to top left corner -->
+<div class="relative size-32 border">
+  <div class="absolute top-0 left-0 size-16 bg-blue-100">01</div>
+</div>
+<!-- Span top edge -->
+<div class="relative size-32 border">
+  <div class="absolute inset-x-0 top-0 h-16 bg-blue-100">02</div>
+</div>
+<!-- Pin to top right corner -->
+<div class="relative size-32 border">
+  <div class="absolute top-0 right-0 size-16 bg-blue-100">03</div>
+</div>
+<!-- Span left edge -->
+<div class="relative size-32 border">
+  <div class="absolute inset-y-0 left-0 w-16 bg-blue-100">04</div>
+</div>
+<!-- Fill entire parent -->
+<div class="relative size-32 border">
+  <div class="absolute inset-0 bg-blue-100">05</div>
+</div>
+<!-- Span right edge -->
+<div class="relative size-32 border">
+  <div class="absolute inset-y-0 right-0 w-16 bg-blue-100">06</div>
+</div>
+<!-- Pin to bottom left corner -->
+<div class="relative size-32 border">
+  <div class="absolute bottom-0 left-0 size-16 bg-blue-100">07</div>
+</div>
+<!-- Span bottom edge -->
+<div class="relative size-32 border">
+  <div class="absolute inset-x-0 bottom-0 h-16 bg-blue-100">08</div>
+</div>
+<!-- Pin to bottom right corner -->
+<div class="relative size-32 border">
+  <div class="absolute right-0 bottom-0 size-16 bg-blue-100">09</div>
+</div>
+
+<div class="grid grid-cols-4 gap-4">
+  <div class="bg-blue-800 ">01</div>
+  <div class="bg-blue-800 ">02</div>
+  <div class="bg-blue-800 ">03</div>
+  <div class="bg-blue-800 ">04</div>
+  <div class="bg-blue-800 pe-px">05</div>
+  <div class="col-span-3 grid grid-cols-subgrid gap-4">
+    <div class="col-start-2 bg-blue-800">06</div>
+  </div>
+</div>
+
+<div class="grid grid-flow-row grid-cols-3 grid-rows-3 ">
+  <div class="col-span-2 bg-red-100">01</div>
+  <div class="col-span-2 bg-red-100">02</div>
+  <div class="bg-red-100">03</div>
+  <div class="bg-red-100">04</div>
+  <div class="bg-red-100">05</div>
+  <div class="bg-red-100">06</div>
+  <div class="bg-red-100">07</div>
+  <div class="bg-red-100">08</div>
+</div>
+
+<div class="grid auto-cols-max grid-flow-col w-[400px]">
+  <div class="bg-green-100">01</div>
+  <div class="bg-green-100">02</div>
+  <div class="bg-green-100">03</div>
+</div>
+
+<div class="grid grid-flow-col auto-cols-max gap-4 border-2 border-gray-400 p-4">
+  <div class="bg-blue-200 p-2">짧은</div>
+  <div class="bg-green-200 p-2">아주 긴 내용이 있는 아이템</div>
+  <div class="bg-red-200 p-2">중간 길이</div>
+  <div class="bg-yellow-200 p-2">하나 더</div>
+</div>
+
+<div class="grid grid-flow-col auto-cols-[100px] gap-4 border-2 border-gray-400 p-4 mt-4">
+  <div class="bg-blue-200 p-2">짧은</div>
+  <div class="bg-green-200 p-2">아주 긴 내용이 있는 아이템</div>
+  <div class="bg-red-200 p-2">중간 길이</div>
+  <div class="bg-yellow-200 p-2 cursor-zoom-in">하나 더</div>
+</div>
+
+<div class="grid justify-items-stretch grid-cols-3 grid-flow-col grid-rows-2 ">
+  <div class="bg-red-200">01</div>
+  <div class="justify-self-start bg-red-200">02</div>
+  <div class="bg-red-200">03</div>
+  <div class="bg-red-200">04</div>
+  <div class="bg-red-200">05</div>
+</div>
+
+<div class="grid grid-flow-col auto-cols-max gap-4 border-2 border-gray-400 p-4">
+  <div class="bg-blue-200 p-2">짧은</div>
+  <div class="bg-green-200 p-2">아주 긴 내용이 있는 아이템</div>
+  <div class="bg-red-200 p-2">중간</div>
+  <div class="bg-yellow-200 p-2">더 긴 내용</div>
+  <div class="bg-purple-200 p-2">훨씬 더 긴 콘텐츠</div>
+</div>
+
+<article class="w-[300px]" >
+  <time>Mar 10, 2020</time>
+  <h2>Boost your conversion rate</h2>
+  <p class="line-clamp-3" title="전체내용숨김">
+    Nulla dolor velit adipisicing duis excepteur esse in duis nostrud occaecat mollit incididunt deserunt sunt. Ut ut
+    sunt laborum ex occaecat eu tempor labore enim adipisicing minim ad. Est in quis eu dolore occaecat excepteur fugiat
+    dolore nisi aliqua fugiat enim ut cillum. Labore enim duis nostrud eu. Est ut eiusmod consequat irure quis deserunt
+    ex. Enim laboris dolor magna pariatur. Dolor et ad sint voluptate sunt elit mollit officia ad enim sit consectetur
+    enim.
+  </p>
+  <div>
+
+    Lindsay Walton
+  </div>
+
+  <div class="">
+    <p class="box w-[300px] h-[400px] border whitespace-pre-line">Lorem                            ipsum dolor sit amet consectetur, adipisicing elit. Veritatis, explicabo illum, maxime vero inventore hic voluptatum molestias reprehenderit possimus officia nobis nulla rerum odit natus? Provident, est ratione earum veniam molestiae adipisci magni aut nostrum numquam iure voluptate modi libero fugit repellat dolor ullam atque. Dolorem aut veniam fugiat autem, doloribus doloremque ipsam pariatur culpa sequi velit, provident consequuntur adipisci blanditiis eaque! Temporibus porro saepe reprehenderit quasi impedit ducimus quidem natus, nulla magnam recusandae molestias? Saepe nemo consequuntur tempore vitae, blanditiis inventore amet harum aspernatur? Dicta asperiores ipsam recusandae itaque nemo omnis, quis soluta error vel accusamus libero, aliquid laboriosam.</p>
+  </div>
+</article>
+<div class="w-full h-full flex">
+<div class="mask-add mask-[url(./images/page.svg),url(./images/page.svg)] mask-[position:30%_50%,70%_50%] bg-[url(./images/page.svg)] w-[700px] h-[700px]"></div>
+<div class="mask-subtract mask-[url(./images/page.svg),url(./images/page.svg)] mask-[position:30%_50%,70%_50%] bg-[url(./images/page.svg)] w-full h-full"></div>
+<div class="mask-intersect mask-[url(./images/page.svg),url(./images/page.svg)] mask-[position:30%_50%,70%_50%] bg-[url(./images/page.svg)] w-full h-full"></div>
+<div class="mask-exclude mask-[url(./images/page.svg),url(./images/page.svg)] mask-[position:30%_50%,70%_50%] bg-[url(./images/page.svg)] w-full h-full"></div>
+</div>
+
+<div class="size-20 transform-flat">
+  <div class="translate-z-12 rotate-x-0 bg-sky-300/75">1</div>
+  <div class="-translate-z-12 rotate-y-18 bg-sky-300/75">2</div>
+  <div class="translate-x-12 rotate-y-90 bg-sky-300/75">3</div>
+  <div class="-translate-x-12 -rotate-y-90 bg-sky-300/75">4</div>
+  <div class="-translate-y-12 rotate-x-90 bg-sky-300/75">5</div>
+  <div class="translate-y-12 -rotate-x-90 bg-sky-300/75">6</div>
+</div>
+<div class="size-20 transform-3d">
+  <div class="translate-z-12 rotate-x-0 bg-sky-300/75">1</div>
+  <div class="-translate-z-12 rotate-y-18 bg-sky-300/75">2</div>
+  <div class="translate-x-12 rotate-y-90 bg-sky-300/75">3</div>
+  <div class="-translate-x-12 -rotate-y-90 bg-sky-300/75">4</div>
+  <div class="-translate-y-12 rotate-x-90 bg-sky-300/75">5</div>
+  <div class="translate-y-12 -rotate-x-90 bg-sky-300/75">6</div>
+</div>
+
+<select>
+  <option>Yes</option>
+  <option>No</option>
+  <option>Maybe</option>
+</select>
+<div class="grid">
+  <select class="col-start-1 row-start-1 appearance-auto bg-gray-50 dark:bg-gray-800">
+    <option>Yes</option>
+    <option>No</option>
+    <option>Maybe</option>
+  </select>
+  <svg class="pointer-events-none col-start-1 row-start-1">
+  </svg>
+</div>
+</body>
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" class="overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- Import Fonts -->
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+
+  <!-- preline -->
+  <link href="./dist/output.css" rel="stylesheet">
+  <script src="./node_modules/preline/dist/preline.js"></script>
+
+  <!-- Custom Tailwind -->
+  <script>
+    tailwind.config = {
+        theme: {
+            fontFamily: {
+                sans: ['NanumSquareNeo','"Noto Sans KR"','ui-sans-serif','system-ui', '-apple-system', 'BlinkMacSystemFont','"Segoe UI"', '"Helvetica Neue"',
+                    'Arial','sans-serif', '"Apple Color Emoji"','"Segoe UI Emoji"', '"Segoe UI Symbol"','"Noto Color Emoji"'],
+                serif: ['Merriweather','Georgia', 'serif'],
+            },
+            screens: {
+                xs: '300px',
+                sm: '550px',
+                md: '1090px',
+                lg: '1240px',
+                xl: '1440px',
+            },
+            extend : {
+                colors: {
+                    blue: {
+                        '100' : "#3069b2",
+                        '200' : "#4277bc",
+                        '300' : "#6aa7da",
+                        '400' : "#85d5f7",
+                    },
+                    green : {
+                        '100' : "#00af9d",
+                        '200' : "#38bca7",
+                        '300' : "#83cec4",
+                        '400' : "#3cbeb7",
+                    },
+                    gray : {
+                        '100' : "#0b0506",
+                        '200' : "#231f20",
+                        '300' : "#666666",
+                        '400' : "#87898c",
+                        '500' : "#898a90",
+                        '600' : "#cccccc",
+                        '700' : "#eff2f4",
+                        '800' : "#efefef",
+                        '900' : "#f6f6fb",
+                    },
+                    red : {
+                        '100' : "#e76971"
+                    },
+                },
+                fontSize: {
+                    'h1': '20px',
+                    'h2' : '18px',
+                    'h6' : '16px',
+                    'body' : '14px',
+                    'caption' : '12px',
+                    'button' : ['12px', {fontWeight:'bold'}],
+                    'small' : '10px',
+                }
+            },
+        },
+    }
+
+   
+
+  </script>
+
+  <!-- Apex chart CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+
+
+   <style>
+    
+/* Hamburder Menu */
+.hamburger {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transition: all 0.25s;
+  position: relative;
+
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  top: 0;
+  left: 0;
+  background: #fff;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+.hamburger-middle {
+  transform: translateY(7px);
+}
+
+.hamburger-bottom {
+  transform: translateY(14px);
+}
+
+.open {
+  transform : rotate(90deg);
+
+}
+
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translateX(6px);
+}
+
+.open .hamburger-middle {
+  display: none;
+}
+
+.open .hamburger-bottom {
+  transform: rotate(-45deg) translateY(6px) translateX(-6px);
+}
+  </style>
+
+</head>
+<body class="font-sans w-full overflow-x-hidden">
+  <div class="grid grid-flow-row  xl:grid-rows-[minmax(50vh,1fr)] xl:h-[100vh]">
+    <div class="top-info bg-gray-200 flex flex-col">
+      <header class="min-h-[70px] flex items-center justify-between border-b border-white">
+        <nav class="flex">
+          <div class="flex gap-4 items-center min-w-[200px] h-[70px] px-2 border-r border-white cursor-pointer">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-[#008FFb] hover:fill-violet-300">
+              <path d="M40.59 34.9501L25.96 38.0401L30.6 23.8201L33.59 27.1502L47.66 14.5201C46.66 12.3501 45.32 10.3001 43.65 8.43015C34.61 -1.63985 19.11 -2.47985 9.03995 6.57015C1.36995 13.4601 -0.940047 24.0901 2.38995 33.2101L12.34 24.2801L9.34995 20.9501L23.98 17.8601L19.34 32.0802L16.35 28.7501L5.23995 38.7201C5.82995 39.5701 6.46995 40.4002 7.17995 41.1801C16.22 51.2501 31.72 52.0901 41.79 43.0401C48.24 37.2501 50.9 28.8101 49.6 20.8401L37.61 31.6001L40.6 34.9301L40.59 34.9501Z"/>
+              </svg>
+            <p class="text-white font-bold">
+              <span class="block">Xena</span>
+              <span>Exchange</span>
+            </p>
+          </div>
+          <ul class=" items-center text-white  hidden lg:flex ">
+            <li class="underline-offset-4 underline decoration-green-500 underline-offset-10">
+              <a href="#none" class="px-4 block font-bold">Dashboard</a>
+            </li>
+            <li class="underline-offset-4 hover:underline hover:decoration-green-500 hover:underline-offset-10">
+              <a href="#none" class="px-4 block hover:font-bold">Markets</a>
+            </li>
+            <li class="underline-offset-4 hover:underline hover:decoration-green-500 hover:underline-offset-10">
+              <a href="#none" class="px-4 block hover:font-bold">Portfolio</a>
+            </li>
+            <li class="underline-offset-4 hover:underline hover:decoration-green-500 hover:underline-offset-10">
+              <a href="#none" class="px-4 block hover:font-bold">Terminal</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="lnb  items-center hidden lg:flex">
+          <p class="text-white flex flex-col min-w-[300px] border-l border-white h-[70px] justify-center pl-4 opacity-75">
+            <span>Support 24/7</span>
+            <span>+7 (495) 777 0107</span>
+          </p>
+          <ul class="flex items-center">
+            <li class="min-w-20 border-l border-white">
+              <a href="#none" class="flex h-[70px]  items-center justify-center">
+                <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg" class="hover:fill-white opacity-55 hover:opacity-100">
+                <path d="M10.03 24.84H15.2C15.2 26.26 14.04 27.43 12.61 27.43C11.18 27.43 10.02 26.27 10.02 24.84H10.03ZM24.26 22.25V23.54H0.97998V22.25L3.56995 19.66V11.9C3.56995 7.89 6.16004 4.4 10.04 3.23V2.84C10.04 1.42 11.2 0.25 12.63 0.25C14.06 0.25 15.22 1.41 15.22 2.84V3.23C19.1 4.39 21.6899 7.89 21.6899 11.9V19.66L24.28 22.25H24.26ZM19.09 11.91C19.09 8.29 16.24 5.44 12.62 5.44C9 5.44 6.15002 8.29 6.15002 11.91V20.96H19.08V11.91H19.09Z" fill="white"/>
+                </svg>
+              </a>
+            </li>
+            <li class="min-w-20 border-l border-white">
+              <a href="#none" class="flex h-[70px]  items-center justify-center">
+                <svg width="27" height="25" viewBox="0 0 27 25" fill="none" xmlns="http://www.w3.org/2000/svg" class="hover:fill-white opacity-55 hover:opacity-100">
+                <g>
+                <path d="M25.62 12.84H9.64001M9.64001 12.84C9.64001 12.1 9.34006 11.38 8.81006 10.85C8.28006 10.32 7.55995 10.02 6.81995 10.02C6.07995 10.02 5.35996 10.32 4.82996 10.85C4.29996 11.38 4 12.09 4 12.84M9.64001 12.84C9.64001 13.58 9.34006 14.3 8.81006 14.83C8.28006 15.36 7.55995 15.66 6.81995 15.66C6.07995 15.66 5.35996 15.36 4.82996 14.83C4.29996 14.3 4 13.58 4 12.84M4 12.84H1.68994M25.62 21.39H18.1899M18.1899 21.39C18.1899 22.14 17.89 22.86 17.36 23.38C16.83 23.9 16.11 24.21 15.37 24.21C14.63 24.21 13.91 23.91 13.38 23.38C12.85 22.85 12.55 22.13 12.55 21.39M18.1899 21.39C18.1899 20.64 17.89 19.93 17.36 19.4C16.83 18.87 16.11 18.57 15.37 18.57C14.63 18.57 13.91 18.87 13.38 19.4C12.85 19.93 12.55 20.65 12.55 21.39M12.55 21.39H1.69995M25.62 4.29998H21.6M15.97 4.29998H1.69995M15.97 4.29998C15.97 3.54998 16.27 2.83998 16.8 2.30998C17.33 1.77998 18.05 1.47998 18.79 1.47998C19.16 1.47998 19.53 1.54998 19.87 1.68998C20.21 1.82998 20.52 2.03998 20.78 2.29998C21.04 2.55998 21.25 2.86998 21.39 3.20998C21.53 3.54998 21.6 3.91998 21.6 4.28998C21.6 4.65998 21.53 5.02998 21.39 5.36998C21.25 5.70998 21.04 6.01998 20.78 6.27998C20.52 6.53998 20.21 6.74998 19.87 6.88998C19.53 7.02998 19.16 7.09998 18.79 7.09998C18.04 7.09998 17.33 6.79998 16.8 6.26998C16.27 5.73998 15.97 5.01998 15.97 4.27998V4.29998Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/>
+                </g>
+                </svg>
+
+              </a>
+            </li>
+            <li class="min-w-20 border-l border-white">
+              <a href="#none" class="flex h-[70px]  items-center justify-center" >
+                <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="hover:fill-white opacity-55 hover:opacity-100">
+                  <g>
+                  <path d="M10.7 10.1699C9.73995 10.1699 8.80001 9.8899 8.01001 9.3499C7.21001 8.8199 6.58997 8.0599 6.21997 7.1699C5.84997 6.2799 5.75994 5.3099 5.93994 4.3699C6.12994 3.4299 6.59002 2.5699 7.27002 1.8899C7.95002 1.2099 8.81 0.749897 9.75 0.559897C10.69 0.369897 11.67 0.469898 12.55 0.839898C13.44 1.2099 14.19 1.8299 14.73 2.6299C15.26 3.4299 15.55 4.3699 15.55 5.3199C15.55 6.6099 15.04 7.8399 14.13 8.7499C13.22 9.6599 11.99 10.1699 10.7 10.1699ZM10.7 2.4099C10.12 2.4099 9.55996 2.5799 9.07996 2.8999C8.59996 3.2199 8.23001 3.6699 8.01001 4.2099C7.79001 4.7399 7.72997 5.3299 7.83997 5.8899C7.94997 6.4499 8.23001 6.9699 8.64001 7.3799C9.05001 7.7899 9.57 8.0599 10.13 8.1799C10.69 8.2899 11.2801 8.2299 11.8101 8.0099C12.3401 7.7899 12.8 7.4199 13.12 6.9399C13.44 6.4599 13.61 5.8999 13.61 5.3199C13.61 4.5499 13.3 3.8099 12.76 3.2599C12.21 2.7099 11.47 2.4099 10.7 2.4099ZM19.75 19.2199C19.49 19.2199 19.2499 19.1099 19.0699 18.9299C18.8899 18.7499 18.79 18.4999 18.78 18.2499C18.78 15.7299 17.41 14.0499 10.7 14.0499C3.98995 14.0499 2.62 15.7299 2.62 18.2499C2.62 18.5099 2.51997 18.7499 2.33997 18.9399C2.15997 19.1199 1.91002 19.2199 1.65002 19.2199C1.39002 19.2199 1.14996 19.1199 0.959961 18.9399C0.779961 18.7599 0.680054 18.5099 0.680054 18.2499C0.680054 12.1099 7.69995 12.1099 10.7 12.1099C13.7 12.1099 20.72 12.1099 20.72 18.2499C20.72 18.5099 20.6101 18.7499 20.4301 18.9299C20.2501 19.1099 20 19.2099 19.75 19.2199Z" fill="white"/>
+                  </g>
+                  </svg>
+
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="lg:hidden mr-2 z-11 ">
+            <button
+              id="menu-btn"
+              type="button"
+              class="z-40 block hamburger lg:hidden focus:outline-none"
+            >
+              <span class="hamburger-top"></span>
+              <span class="hamburger-middle"></span>
+              <span class="hamburger-bottom"></span>
+            </button>
+          </div>
+        <!-- Mobile Menu -->
+        <div
+          id="menu"
+          class="fixed top-0 bottom-0 left-0 hidden flex-col self-end w-full min-h-screen py-1 pt-40 pl-12 space-y-3 text-lg text-white uppercase bg-gray-100 z-10 gap-10" 
+        >
+          <a href="#" class="hover:text-blue-500 ">Dashboard</a>
+          <a href="#" class="hover:text-blue-500 ">Markets</a>
+          <a href="#" class="hover:text-blue-500 ">Portfolio</a>
+          <a href="#" class="hover:text-blue-500 ">Terminal</a>
+        </div>
+      </header>
+      <div class="visual p-6 flex text-white flex-col xl:flex-row gap-10 xl:gap-0 items-center w-full grow">
+        <div class="left-info xl:basis-[40%] md:px-20">
+          <h1 class="text-5xl font-bold">Dashboard</h1>
+          <p class="font-bold py-8 text-body">Welcome back!</p>
+          <span class="opacity-75 text-body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, magni natus. Dicta commodi recusandae corporis ipsum odio laudantium eligendi magnam.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi reiciendis neque repellendus saepe modi sunt. Expedita quas animi sapiente totam.
+          </span>
+        </div>
+        <div class="right-info flex basis-auto grow items-center w-full flex-wrap md:flex-nowrap gap-10">
+          <ul class="flex flex-col gap-4 basis:40% md:basis-[25%] md:px-20 text-body grow list-disc ">
+            <li>
+              <span class="opacity-75 block py-1">USD Balance</span>
+              <p class="font-bold text-body">
+                15,008.00
+              </p>
+            </li>
+            <li>
+              <span class="opacity-75 block py-1">BTC Balance</span>
+              <p class="font-bold text-body">
+                28.00485
+              </p>
+            </li>
+            <li>
+              <span class="opacity-75 block py-1">ETH Balance</span>
+              <p class="font-bold text-body">
+                150.084
+              </p>
+            </li>
+            <li class="list-none">
+              <button class="bg-blue-100 px-4 py-2 font-bold hover:bg-blue-800">Details</button>
+            </li>
+          </ul>
+          <ul class="flex flex-col gap-4 md:basis-[25%] basis:40%  md:px-20 text-body grow list-disc ">
+            <li>
+              <span class="opacity-75 block py-1">Accont Value</span>
+              <p class="font-bold text-body">
+                250,048.00
+              </p>
+            </li>
+            <li>
+              <span class="opacity-75 block py-1">USD Available to Trade</span>
+              <p class="font-bold text-body">
+                2,400.00
+              </p>
+            </li>
+            <li>
+              <span class="opacity-75 block py-1">BTC Available to Trade</span>
+              <p class="font-bold text-body">
+                0.00
+              </p>
+            </li>
+            <li>
+              <span class="opacity-75 block py-1">ETH Available to Trade</span>
+              <p class="font-bold text-body">
+                150.084
+              </p>
+            </li>
+          </ul>
+          <div class="chart-wrap basis-[30%] m-auto">
+            <div id="chart1"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-info bg-white grid grid-cols-1 xl:grid-cols-3 p-4 md:p-10 gap-10">
+      <div class="first flex flex-col">
+        <h2 class="text-2xl font-bold pb-4 mb-4 border-b border-gray-600">BTC / USD Historical Date</h2>
+        <ul class="grid grid-cols-3 gap-4 w-full pb-4 text-body grow ">
+          <li>
+            <span class="opacity-75 block py-1">Last Price</span>
+              <p class="font-bold text-body">
+                4,350.01
+              </p>
+          </li>
+          <li>
+            <span class="opacity-75 block py-1">24H</span>
+              <p class="font-bold text-body">
+                8.39
+              </p>
+          </li>
+          <li>
+            <span class="opacity-75 block py-1">Last Price</span>
+              <p class="font-bold text-body">
+                4,302.80 - 4,450.01
+              </p>
+          </li>
+        </ul>
+        <div class="chart-wrap flex">
+            <div id="chart2" class="w-full"></div>
+        </div>
+      </div>
+      <div class="second flex flex-col">
+         <h2 class="text-2xl font-bold pb-4 mb-4 border-b border-gray-600">Recent</h2>
+         <table class="w-full text-left grow text-body">
+          <thead>
+            <tr class="border-b border-gray-800">
+              <th class="py-4">Time</th>
+              <th class="py-4">Price</th>
+              <th class="py-4">Qty</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-800">
+              <td class="py-2">06:06 PM</td>
+              <td class="py-2">4,358.0</td>
+              <td class="py-2">0.048015 BTC</td>
+            </tr>
+            <tr class="border-b border-gray-800">
+              <td class="py-2">06:06 PM</td>
+              <td class="py-2">4,358.0</td>
+              <td class="py-2">0.048015 BTC</td>
+            </tr>
+            <tr class="border-b border-gray-800">
+              <td class="py-2">06:06 PM</td>
+              <td class="py-2">4,358.0</td>
+              <td class="py-2">0.048015 BTC</td>
+            </tr>
+            <tr class="border-b border-gray-800">
+              <td class="py-2">06:06 PM</td>
+              <td class="py-2">4,358.0</td>
+              <td class="py-2">0.048015 BTC</td>
+            </tr>
+
+          </tbody>
+         </table>
+      </div>
+      <div class="third flex flex-col">
+         <h2 class="text-2xl font-bold pb-4 mb-4 border-b border-gray-600">News</h2>
+         <ul class="flex flex-col grow">
+          <li class="mb-4 pb-4 border-b border-gray-800 grow">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi amet, itaque quaerat quo ab tempora. Accusamus maiores fuga commodi nulla reiciendis voluptate, quis earum dignissimos.
+            </p>
+            <span>
+              <a href="#none" class="text-blue-200 inline-block border-b border-blue-200 mr-2 hover:font-bold">Breakermag.com</a> 2hours
+            </span>
+          </li>
+          <li class="pb-4 border-b border-gray-800 grow">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi amet, itaque quaerat quo ab tempora. Accusamus maiores fuga commodi nulla reiciendis voluptate, quis earum dignissimos quidem quae id tenetur voluptates, magni eos corrupti porro quas dolores dolorem itaque, laudantium fugit unde. Explicabo a reiciendis eius quibusdam cupiditate aspernatur veritatis numquam.
+            </p>
+            <span>
+              <a href="#none" class="text-blue-200 inline-block border-b border-blue-200 mr-2 hover:font-bold">Breakermag.com</a> 2hours
+            </span>
+          </li>
+         </ul>
+      </div>
+    </div>
+  </div>
+  <script>
+
+   // chart2에 필요한 dates 데이터 정의
+    // 예시 데이터: 실제 프로젝트에서는 API 호출 등으로 데이터를 받아와야 합니다.
+    function generateDayWiseTimeSeries(baseval, count, yrange) {
+      var i = 0;
+      var series = [];
+      while (i < count) {
+        var x = baseval;
+        var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+
+        series.push([x, y]);
+        baseval += 86400000; // 하루를 밀리초로 더함
+        i++;
+      }
+      return series;
+    }
+
+    // 약 30일치 랜덤 데이터 생성
+    var dates = generateDayWiseTimeSeries(new Date('11 Feb 2017').getTime(), 30, {
+      min: 1000000,
+      max: 9000000
+    });
+
+    /* Donut chart */
+     var options1 = {
+          series: [44, 55, 41, 17, ],
+          chart: {
+          type: 'donut',
+          width: 350
+        },
+        plotOptions: {
+          pie: {
+            donut: {
+             size: '55%',
+             labels: {
+              show: true,
+              total : {
+                
+              }
+             }
+          },
+        },
+        },
+         stroke: {
+                show: false,
+                width:0,
+                colors:undefined,
+              },
+        colors: ['#008FFB', '#4F4F4F', '#7E33C1', '#FFFFFF'],
+        legend: {
+              show: true,
+              position: 'top',
+              horizontalAlign:'center',
+              offsetY: 0, // y축 오프셋
+              offsetX: 0, // x축 오프셋
+              labels: {colors: '#ffffff'}
+            },
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200,
+            },
+            legend: {
+              show: true,
+              position: 'bottom',
+              horizontalAlign:'center',
+              offsetY: 0, // y축 오프셋
+              offsetX: 0, // x축 오프셋
+              labels: {colors: '#ffffff'}
+            }
+          }
+        }]
+        };
+
+        var chart1 = new ApexCharts(document.querySelector("#chart1"), options1);
+        chart1.render();
+
+
+        /* line chart */
+      
+        var options2 = {
+          series: [{
+          name: 'XYZ MOTORS',
+          data: dates,
+        }],
+        
+          chart: {
+          
+          type: 'area',
+          stacked: false,
+          height:200,
+          zoom: {
+            type: 'x',
+            enabled: true,
+            autoScaleYaxis: true
+          },
+          toolbar: {
+            autoSelected: 'zoom',
+            show:false
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        markers: {
+          size: 0,
+        },
+        title: {
+          text: 'Stock Price Movement',
+          align: 'left'
+        },
+        fill: {
+          type: 'gradient',
+          gradient: {
+            shadeIntensity: 1,
+            inverseColors: false,
+            opacityFrom: 0.5,
+            opacityTo: 0,
+            stops: [0, 90, 100]
+          },
+        },
+        yaxis: {
+          labels: {
+            formatter: function (val) {
+              return (val / 1000000).toFixed(0);
+            },
+          },
+          title: {
+            text: 'Price'
+          },
+        },
+        xaxis: {
+          type: 'datetime',
+        },
+        tooltip: {
+          shared: false,
+          y: {
+            formatter: function (val) {
+              return (val / 1000000).toFixed(0)
+            }
+          }
+        }
+        };
+
+        var chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
+        chart2.render();
+
+       document.addEventListener("DOMContentLoaded", function(){
+      const btn = document.getElementById('menu-btn');
+      const menu =  document.getElementById('menu');
+      const body = document.body;
+
+
+      btn.addEventListener('click',navToggle)
+      function navToggle() {{
+        btn.classList.toggle('open');
+        menu.classList.toggle('flex');
+        menu.classList.toggle('hidden');
+        body.classList.toggle('overflow-hidden');
+        body.classList.toggle('fixed');
+   
+      }}
+      });
+
+  </script>
+</body>
+</html>
