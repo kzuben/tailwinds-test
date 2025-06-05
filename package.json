@@ -1,0 +1,33 @@
+{
+  "name": "pb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@preline/datatable": "^3.0.0",
+    "apexcharts": "^4.7.0",
+    "datatables.net-dt": "^2.3.1",
+    "flowbite": "^3.1.2",
+    "jquery": "^3.7.1",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.10",
+    "autoprefixer": "^10.4.21",
+    "copyfiles": "^2.4.1",
+    "postcss": "^8.5.3",
+    "preline": "^3.0.1",
+    "tailwindcss": "^3.4.17"
+  },
+  "scripts": {
+    "init": "npx tailwindcss init -p",
+    "copy:images": "copyfiles \"src/images/**/*\" dist -u 1",
+    "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "npm run copy:images && tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "start": "npm run build:css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
