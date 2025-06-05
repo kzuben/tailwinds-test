@@ -9,14 +9,37 @@
   <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css"
     rel="stylesheet" />
 
-  <!-- preline -->
-  <link href="./dist/output.css" rel="stylesheet" />
-  <script src="./node_modules/preline/dist/preline.js"></script>
+ <!-- 개발/배포 환경에 따라 CSS 링크 분기 -->
+ <script type="module">
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = import.meta.env.MODE === 'development' 
+    ? '/src/input.css'  // 개발 환경
+    : './output.css';  // 배포 환경
+  document.head.appendChild(link);
+</script>
 
-  <!-- Data Table CDN -->
-  <script src="./assets/vendor/jquery/dist/jquery.min.js"></script>
-  <script src="./assets/vendor/datatables.net/js/dataTables.min.js"></script>
+  <!-- 개발 환경에서만 로드 -->
+  <script type="module">
+    if (import.meta.env.MODE === 'development') {
+      const s1 = document.createElement('script');
+      s1.src = './node_modules/preline/dist/preline.js';
+      document.body.appendChild(s1);
+
+      const s2 = document.createElement('script');
+      s2.src = './assets/vendor/jquery/dist/jquery.min.js';
+      document.body.appendChild(s2);
+
+      const s3 = document.createElement('script');
+      s3.src = './assets/vendor/datatables.net/js/dataTables.min.js';
+      document.body.appendChild(s3);
+    }
+  </script>
 </head>
+
+
+
+
 <body>
   <!-- login -->
   <div class="login">
