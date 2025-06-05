@@ -24,4 +24,11 @@ yarn-error.log*
 src/
 *.js
 *.css
-!dist/*.css 
+!dist/*.css
+
+# index.html 계열 파일은 무시 (로컬에만 존재)
+index.html
+index2.html
+index3.html
+
+# tailwind.config.js, postcss.config.js는 무시하지 않음 (즉, git에 포함) 
