@@ -274,3 +274,80 @@
 - 아이콘: SVG 인라인 사용
 - 테이블 스타일: 커스텀 수직 레이아웃
 - 삭제 확인 메시지: "정말로 삭제하시겠습니까?"
+
+# 프로젝트 이름
+
+## 개발 환경 설정
+
+### 필수 요구사항
+- Node.js (v14 이상)
+- npm (v6 이상)
+
+### 설치 방법
+
+1. **프로젝트 클론**
+```bash
+git clone [프로젝트_저장소_URL]
+cd [프로젝트_폴더]
+```
+
+2. **의존성 설치**
+```bash
+npm install
+```
+
+3. **개발 서버 실행**
+```bash
+npm run start
+```
+
+### 주요 명령어
+
+- `npm run start`: 개발 서버 실행 (CSS 자동 컴파일)
+- `npm run build`: 프로덕션용 CSS 빌드
+- `npm run copy:images`: 이미지 파일 복사
+
+### 프로젝트 구조
+```
+├── src/
+│   ├── input.css      # Tailwind CSS 소스
+│   └── images/        # 이미지 파일
+├── dist/
+│   ├── output.css     # 컴파일된 CSS
+│   └── images/        # 복사된 이미지
+├── public/            # 정적 파일
+├── tailwind.config.js # Tailwind 설정
+└── postcss.config.js  # PostCSS 설정
+```
+
+### 협업 시 주의사항
+
+1. **CSS 수정**
+   - `src/input.css` 파일에서 Tailwind 클래스 수정
+   - 수정 후 자동으로 `dist/output.css`에 반영됨
+
+2. **이미지 추가**
+   - `src/images/` 폴더에 이미지 추가
+   - `npm run copy:images` 실행하여 dist 폴더로 복사
+
+3. **새로운 의존성 추가**
+   - `npm install [패키지명]` 으로 설치
+   - `package.json`에 자동으로 추가됨
+
+4. **커스텀 설정**
+   - `tailwind.config.js`에서 테마, 색상 등 커스텀 설정
+   - `postcss.config.js`에서 PostCSS 플러그인 설정
+
+### 문제 해결
+
+1. **CSS가 적용되지 않는 경우**
+   - `npm run build` 실행하여 CSS 재빌드
+   - 브라우저 캐시 삭제
+
+2. **이미지가 보이지 않는 경우**
+   - `npm run copy:images` 실행
+   - 이미지 경로 확인
+
+3. **의존성 문제**
+   - `node_modules` 삭제
+   - `npm install` 재실행
