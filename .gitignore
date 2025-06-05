@@ -31,4 +31,14 @@ index.html
 index2.html
 index3.html
 
-# tailwind.config.js, postcss.config.js는 무시하지 않음 (즉, git에 포함) 
+# tailwind.config.js, postcss.config.js는 무시하지 않음 (즉, git에 포함)
+
+# docs 폴더는 로컬에만 존재
+docs/
+
+# package.json과 package-lock.json은 git에 포함
+!package.json
+!package-lock.json
+
+# dist 폴더의 CSS 파일은 git에 포함
+!dist/output.css 
