@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tailwind dashboard template</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Import Fonts -->
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet"/>
+
+    <!-- Tailwind CDN -->
+
+    <!-- preline -->
+    <link href="./dist/output.css" rel="stylesheet" />
+    <script src="./node_modules/preline/dist/preline.js"></script>
+
+    <!-- Apex chart CDN -->
+
+    <link rel="stylesheet" href="./node_modules/apexcharts/dist/apexcharts.css"/>
+    <script src="./node_modules/lodash/lodash.min.js"></script>
+    <script src="./node_modules/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="./node_modules/preline/dist/helper-apexcharts.js"></script>
+    <script src="https://preline.co/assets/js/hs-apexcharts-helpers.js"></script>
+
+    <!-- Data Table CDN -->
+    <script src="./assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="./assets/vendor/datatables.net/js/dataTables.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body class="font-sans bg-gray-700 text-body">
+  <div class="container w-full grid grid-auto-col items-center min-w-full max-w-full flex-col">
+    <div class="top-info flex justify-center items-center bg-blue-100 min-w-full h-[30px] gap-2">
+        <p class="text-caption text-white">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        <button class="text-button text-white bg-green-100 px-2 rounded-sm">Lorem ipsum</button>
+    </div>
+    <header class="bg-white md:h-[54px] flex items-center justify-between px-4"> <div class="logo self-end flex items-center text-h1 font-bold gap-2 cursor-pointer">
+            <img src="./images/logo.svg" alt="logo"> ellaMetric
+        </div>
+        <ul class="gnb flex gap-5 text-caption">
+            <li class="text-bold">
+                <a href="#none" class="hover:font-bold">menu1</a>
+            </li>
+            <li>
+                <a href="#none" class="hover:font-bold">menu2</a>
+            </li>
+            <li>
+                <a href="#none" class="hover:font-bold">menu3</a>
+            </li>
+            <li>
+                <a href="#none" class="underline decoration-solid underline-offset-8 font-bold decoration-green-100 decoration-2">menu4</a>
+            </li>
+        </ul>
+        <a href="#none" class="login text-gray-500 px-[18px] text-caption flex items-center gap-1 font-bold" >LOG IN 
+          <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-gray-500">
+          <g opacity="0.6">
+          <path d="M10.7 10.1699C9.73995 10.1699 8.80001 9.8899 8.01001 9.3499C7.21001 8.8199 6.58997 8.0599 6.21997 7.1699C5.84997 6.2799 5.75994 5.3099 5.93994 4.3699C6.12994 3.4299 6.59002 2.5699 7.27002 1.8899C7.95002 1.2099 8.81 0.749897 9.75 0.559897C10.69 0.369897 11.67 0.469898 12.55 0.839898C13.44 1.2099 14.19 1.8299 14.73 2.6299C15.26 3.4299 15.55 4.3699 15.55 5.3199C15.55 6.6099 15.04 7.8399 14.13 8.7499C13.22 9.6599 11.99 10.1699 10.7 10.1699ZM10.7 2.4099C10.12 2.4099 9.55996 2.5799 9.07996 2.8999C8.59996 3.2199 8.23001 3.6699 8.01001 4.2099C7.79001 4.7399 7.72997 5.3299 7.83997 5.8899C7.94997 6.4499 8.23001 6.9699 8.64001 7.3799C9.05001 7.7899 9.57 8.0599 10.13 8.1799C10.69 8.2899 11.2801 8.2299 11.8101 8.0099C12.3401 7.7899 12.8 7.4199 13.12 6.9399C13.44 6.4599 13.61 5.8999 13.61 5.3199C13.61 4.5499 13.3 3.8099 12.76 3.2599C12.21 2.7099 11.47 2.4099 10.7 2.4099ZM19.75 19.2199C19.49 19.2199 19.2499 19.1099 19.0699 18.9299C18.8899 18.7499 18.79 18.4999 18.78 18.2499C18.78 15.7299 17.41 14.0499 10.7 14.0499C3.98995 14.0499 2.62 15.7299 2.62 18.2499C2.62 18.5099 2.51997 18.7499 2.33997 18.9399C2.15997 19.1199 1.91002 19.2199 1.65002 19.2199C1.39002 19.2199 1.14996 19.1199 0.959961 18.9399C0.779961 18.7599 0.680054 18.5099 0.680054 18.2499C0.680054 12.1099 7.69995 12.1099 10.7 12.1099C13.7 12.1099 20.72 12.1099 20.72 18.2499C20.72 18.5099 20.6101 18.7499 20.4301 18.9299C20.2501 19.1099 20 19.2099 19.75 19.2199Z" />
+          </g>
+          </svg>
+        </a>
+    </header>
+    <div class="content px-[20px] py-[15px]">
+        <section class="section-first mb-5">
+            <div class="title flex gap-5 items-center">
+                <h1 class="text-h1 font-bold leading-10">Failed Charges</h1>
+                <select name="" id="" class="pl-3 py-1 text-gray-500 font-light rounded-sm text-xs pr-6 border-gray-700 cursor-pointer">
+                    <option value="">Feb 17,2025 . Mar 17,2025</option>
+                </select>
+                <p class="col-span-3 text-right grow text-caption text-gray-500" >
+                    Lorem ipsum dolor.
+                </p>
+            </div>
+            <div class="bg-white">
+                <ul class="grid auto-cols-fr grid-flow-col border-b-2 border-gray-700 py-4 px-5">
+                    <li>
+                        <p class="text-h2 font-bold text-blue-100">$5,148.00</p>
+                        <span class="text-small text-gray-400">lorem ipsum</span>
+                    </li>
+                    <li>
+                        <p class="text-h2 font-bold text-blue-100">3.1%</p>
+                        <span class="text-small text-gray-400">lorem ipsum</span>
+                    </li>
+                    <li>
+                        <p class="text-h2 font-bold text-gray-300">44</p>
+                        <span class="text-small text-gray-400">lorem ipsum</span>
+                    </li>
+                    <li>
+                        <p class="text-h2 font-bold text-gray-300">4.0%</p>
+                        <span class="text-small text-gray-400">lorem ipsum</span>
+                    </li>
+                    <li>
+                        <p class="text-h2 font-bold text-gray-300">$117.00</p>
+                        <span class="text-small text-gray-400">lorem ipsum</span>
+                    </li>
+                    <li>
+                        <p class="text-h2 font-bold text-gray-300">1.2%</p>
+                        <span class="text-small text-gray-400">lorem ipsum</span>
+                    </li>
+                </ul>
+
+                <div class="py-4 px-5 grid grid-glow-col">
+                    <div class="flex xs:flex-col sm:flex-col md:flex-col lg:flex-row overflow-hidden"> 
+                        <div id="chart-wrapper" style="position: relative;  height: 250px; border: 1px solid #eee;" class="xs:w-full sm:w-full md:w-full lg:w-1/2">
+                            <div id="outer-chart" ></div>
+                            <div id="inner-chart"></div>
+                        </div>
+                         <div id="chart-wrapper2" style="position: relative; height: 250px; border: 1px solid #eee;"class="xs:w-full sm:w-full md:w-full lg:w-1/2">
+                            <div id="outer-chart2" ></div>
+                            <div id="inner-chart2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-second">
+          <div class="tabs w-full">
+            <ul class="flex flex-wrap text-caption font-light text-center text-gray-500 border-b border-gray-800 bg-gray-800 cursor w-full">
+              <li aria-current="page" class="me-2 grow inline-block p-4 text-blue-100 bg-white rounded-t-lg font-bold active cursor">
+                  <a href="#">Profile</a>
+              </li>
+              <li class="me-2 grow inline-block p-4 rounded-t-lg text-gray-500  cursor hover:font-medium">
+                  <a href="#" class="">Dashboard</a>
+              </li>
+              <li class="me-2 grow inline-block p-4 rounded-t-lg text-gray-500  cursor hover:font-medium">
+                  <a href="#" class="">Settings</a>
+              </li>
+              <li class="me-2 grow inline-block p-4 rounded-t-lg text-gray-500  cursor hover:font-medium">
+                  <a href="#" class="">Contacts</a>
+              </li>
+              <li class="grow inline-block p-4 text-gray-400 rounded-t-lg cursor-not-allowed">
+                  <a class="">Disabled</a>
+              </li>
+            </ul>
+          </div>
+          <div class="pages bg-white py-4 px-5">
+            <div class="flex items-center gap-x-3 justify-end w-full">
+              <label for="hs-basic-with-description" class="text-caption text-gray-500 dark:text-neutral-400">Off</label>
+              <label for="hs-basic-with-description" class="relative inline-block w-11 h-6 cursor-pointer">
+                <input type="checkbox" id="hs-basic-with-description" class="peer sr-only">
+                <span class="absolute inset-0 bg-gray-600 rounded-full transition-colors duration-200 ease-in-out peer-checked:bg-green-200 dark:bg-neutral-700 dark:peer-checked:bg-blue-500 peer-disabled:opacity-50 peer-disabled:pointer-events-none"></span>
+                <span class="absolute top-1/2 start-0.5 -translate-y-1/2 size-5 bg-white rounded-full shadow-xs transition-transform duration-200 ease-in-out peer-checked:translate-x-full dark:bg-neutral-400 dark:peer-checked:bg-white"></span>
+              </label>
+              <label for="hs-basic-with-description" class="text-caption text-gray-500 dark:text-neutral-400">On</label>
+            </div>
+            
+            <div class="sub-title">
+              <h6 class="text-body text-gray-200">lorem sub title</h6>
+            </div>
+
+              <!-- Stepper -->
+              <ul class="relative flex flex-row gap-x-2">
+                <!-- Item -->
+                <li class="shrink basis-0 flex-1 group">
+                  <div class="min-w-7 min-h-7 w-full inline-flex items-center text-xs align-middle">
+                    <span class="size-7 flex justify-center items-center shrink-0 bg-blue-200 font-medium text-gray-800 rounded-full dark:bg-neutral-700 dark:text-white">
+                      1
+                    </span>
+                    <div class="ms-2 w-full h-px flex-1 bg-blue-200 group-last:hidden dark:bg-neutral-700"></div>
+                  </div>
+                  <div class="mt-3">
+                    <span class="block text-sm font-light text-gray-600 dark:text-white">
+                      Step
+                    </span>
+                  </div>
+                </li>
+                <!-- End Item -->
+
+                <!-- Item -->
+                <li class="shrink basis-0 flex-1 group">
+                  <div class="min-w-7 min-h-7 w-full inline-flex items-center text-xs align-middle">
+                    <span class="size-7 flex justify-center items-center shrink-0 bg-white font-medium text-blue-100 rounded-full border border-blue-100  dark:bg-neutral-700 dark:text-white">
+                      2
+                    </span>
+                    <div class="ms-2 w-full h-px flex-1 bg-blue-200 group-last:hidden dark:bg-neutral-700"></div>
+                  </div>
+                  <div class="mt-3">
+                    <span class="block text-sm font-light text-gray-600 dark:text-white">
+                      Step
+                    </span>
+                  </div>
+                </li>
+                <!-- End Item -->
+
+                <!-- Item -->
+                <li class="shrink basis-0 flex-1 group">
+                  <div class="min-w-7 min-h-7 w-full inline-flex items-center text-xs align-middle">
+                    <span class="size-7 flex justify-center items-center shrink-0 bg-blue-100 font-medium text-gray-800 rounded-full dark:bg-neutral-700 dark:text-white">
+                      3
+                    </span>
+                    <div class="ms-2 w-full h-px flex-1 bg-blue-100 group-last:hidden dark:bg-neutral-700"></div>
+                  </div>
+                  <div class="mt-3">
+                    <span class="block text-sm font-light text-gray-600  dark:text-white">
+                      Step
+                    </span>
+                  </div>
+                </li>
+                <!-- End Item -->
+
+                <!-- Item -->
+                <li class="shrink basis-0 flex-1 group">
+                  <div class="min-w-7 min-h-7 w-full inline-flex items-center text-xs align-middle">
+                    <span class="size-7 flex justify-center items-center shrink-0 bg-blue-100 font-medium text-gray-800 rounded-full dark:bg-neutral-700 dark:text-white">
+                      4
+                    </span>
+                    <div class="ms-2 w-full h-px flex-1 bg-blue-100 group-last:hidden dark:bg-neutral-700"></div>
+                  </div>
+                  <div class="mt-3">
+                    <span class="block text-sm font-light text-gray-600  dark:text-white">
+                      Step
+                    </span>
+                  </div>
+                </li>
+                <!-- End Item -->
+
+                <!-- Item -->
+                <li class="shrink basis-0 flex-1 group">
+                  <div class="min-w-7 min-h-7 w-full inline-flex items-center text-xs align-middle">
+                    <span class="size-7 flex justify-center items-center shrink-0 bg-blue-100 font-medium text-gray-800 rounded-full dark:bg-neutral-700 dark:text-white">
+                      5
+                    </span>
+                    <div class="ms-2 w-full h-px flex-1 bg-blue-100 group-last:hidden dark:bg-neutral-700"></div>
+                  </div>
+                  <div class="mt-3">
+                    <span class="block text-sm font-light text-gray-600  dark:text-white">
+                      Step
+                    </span>
+                  </div>
+                </li>
+                <!-- End Item -->
+
+                <!-- Item -->
+                <li class="shrink basis-0 flex-1 group">
+                  <div class="min-w-7 min-h-7 w-full inline-flex items-center text-xs align-middle">
+                    <span class="size-7 flex justify-center items-center shrink-0 bg-blue-100 font-medium text-gray-800 rounded-full dark:bg-neutral-700 dark:text-white">
+                      6
+                    </span>
+                    <div class="ms-2 w-full h-px flex-1 bg-blue-100 group-last:hidden dark:bg-neutral-700"></div>
+                  </div>
+                  <div class="mt-3">
+                    <span class="block text-sm font-light text-gray-600  dark:text-white">
+                      Step
+                    </span>
+                  </div>
+                </li>
+                <!-- End Item -->
+
+                <!-- Item -->
+                <li class="shrink basis-0 flex-1 group">
+                  <div class="min-w-7 min-h-7 w-full inline-flex items-center text-xs align-middle">
+                    <span class="size-7 flex justify-center items-center shrink-0 bg-blue-100 font-medium text-gray-800 rounded-full dark:bg-neutral-700 dark:text-white">
+                      7
+                    </span>
+                    <div class="ms-2 w-full h-px flex-1 bg-blue-100 group-last:hidden dark:bg-neutral-700"></div>
+                  </div>
+                  <div class="mt-3">
+                    <span class="block text-sm font-light text-gray-600  dark:text-white">
+                      Step
+                    </span>
+                  </div>
+                </li>
+                <!-- End Item -->
+
+                <!-- Item -->
+                <li class="shrink basis-0 flex-1 group">
+                  <div class="min-w-7 min-h-7 w-full inline-flex items-center text-xs align-middle">
+                    <span class="size-7 flex justify-center items-center shrink-0 bg-blue-100 font-medium text-gray-800 rounded-full dark:bg-neutral-700 dark:text-white">
+                      8
+                    </span>
+                    <div class="ms-2 w-full h-px flex-1 bg-blue-100 group-last:hidden dark:bg-neutral-700"></div>
+                  </div>
+                  <div class="mt-3">
+                    <span class="block text-sm font-light text-gray-600  dark:text-white">
+                      Step
+                    </span>
+                  </div>
+                </li>
+                <!-- End Item -->
+
+                <!-- Item -->
+                <li class="shrink basis-0 flex-1 group">
+                  <div class="min-w-7 min-h-7 w-full inline-flex items-center text-xs align-middle">
+                    <span class="size-7 flex justify-center items-center shrink-0 bg-blue-100 font-medium text-gray-800 rounded-full dark:bg-neutral-700 dark:text-white">
+                      9
+                    </span>
+                    <div class="ms-2 w-full h-px flex-1 bg-blue-100 group-last:hidden dark:bg-neutral-700"></div>
+                  </div>
+                  <div class="mt-3">
+                    <span class="block text-sm font-light text-gray-600  dark:text-white">
+                      Step
+                    </span>
+                  </div>
+                </li>
+                <!-- End Item -->
+
+                <!-- Item -->
+                <li class="shrink basis-0 flex-1 group">
+                  <div class="min-w-7 min-h-7 w-full inline-flex items-center text-xs align-middle">
+                    <span class="size-7 flex justify-center items-center shrink-0 bg-blue-100 font-medium text-gray-800 rounded-full dark:bg-neutral-700 dark:text-white">
+                      10
+                    </span>
+                    <div class="ms-2 w-full h-px flex-1 bg-blue-100 group-last:hidden dark:bg-neutral-700"></div>
+                  </div>
+                  <div class="mt-3">
+                    <span class="block text-sm font-light text-gray-600  dark:text-white">
+                      Step
+                    </span>
+                  </div>
+                </li>
+                <!-- End Item -->
+              </ul>
+              <!-- End Stepper -->
+
+              <!-- List -->
+              <ul class="grid auto-cols-fr grid-flow-col border-b-2 border-gray-700 py-4 px-5">
+                    <li>
+                      <span class="text-small text-gray-500">lorem ipsum</span>
+                      <p class="text-h2 font-bold text-blue-100">$5,148.00</p>
+                    </li>
+                    <li>
+                      <span class="text-small text-gray-500">lorem ipsum</span>
+                      <p class="text-h2 font-bold text-blue-100">3.1%</p>
+                    </li>
+                    <li>
+                      <span class="text-small text-gray-500">lorem ipsum</span>
+                      <p class="text-h2 font-bold text-gray-300">44</p>
+                    </li>
+                    <li>
+                      <span class="text-small text-gray-500">lorem ipsum</span>
+                      <p class="text-h2 font-bold text-gray-300">4.0%</p>
+                    </li>
+                    <li>
+                      <span class="text-small text-gray-500">lorem ipsum</span>
+                      <p class="text-h2 font-bold text-gray-300">$117.00</p>
+                    </li>
+                    <li>
+                      <span class="text-small text-gray-500">lorem ipsum</span>
+                      <p class="text-h2 font-bold text-gray-300">1.2%</p>
+                    </li>
+              </ul>
+              <ul class="grid auto-cols-fr grid-flow-col border-b-2 border-gray-700 py-4 px-5">
+                    <li>
+                      <span class="text-small text-gray-500">lorem ipsum</span>
+                      <p class="text-h2 font-bold text-blue-100">$5,148.00</p>
+                    </li>
+                    <li>
+                      <span class="text-small text-gray-500">lorem ipsum</span>
+                      <p class="text-h2 font-bold text-blue-100">3.1%</p>
+                    </li>
+                    <li>
+                      <span class="text-small text-gray-500">lorem ipsum</span>
+                      <p class="text-h2 font-bold text-gray-300">44</p>
+                    </li>
+                    <li>
+                      <span class="text-small text-gray-500">lorem ipsum</span>
+                      <p class="text-h2 font-bold text-gray-300">4.0%</p>
+                    </li>
+                    <li>
+                      <span class="text-small text-gray-500">lorem ipsum</span>
+                      <p class="text-h2 font-bold text-gray-300">$117.00</p>
+                    </li>
+                    <li>
+                      <span class="text-small text-gray-500">lorem ipsum</span>
+                      <p class="text-h2 font-bold text-gray-300">1.2%</p>
+                    </li>
+              </ul>
+              <!-- End List  -->
+
+              <div class="sub-title mt-4">
+                <h6 class="text-body text-gray-200">lorem sub title</h6>
+              </div>
+
+
+              <!-- Area Chart End -->
+              <div id="chart-wrapper3" style="height: 450px;" class="border border-gray-800 w-full p-3 ">
+                <div id="chart3"></div>
+              </div>
+              <!-- Area Chart End -->
+          </div>
+        </section>
+
+        <section class="section-third flex w-full gap-3 xs:flex-wrap sm:flex-wrap lg:flex-nowrap">
+          <div class="sub1 grow sm:basis-full lg:basis-auto">
+             <div class="sub-title mt-4">
+              <h6 class="text-body text-gray-200">lorem sub title</h6>
+            </div>
+            <div class="bg-white">
+              <div class="inner-wrap flex bg-gray-900 p-4">
+                <div class="inner-title basis-1/2 ">
+                  <span class="text-small text-gray-300">lorem ipsum</span>
+                  <p class="text-h2 font-bold text-gray-100">$5,148.00</p>
+                </div>
+                <div class="inner-title basis-1/2">
+                  <span class="text-small text-gray-300">lorem ipsum</span>
+                  <p class="text-h2 font-bold text-gray-100">$5,148.00</p>
+                </div>
+              </div>
+              <div class="inner-content bg-white p-4">
+                  <div id="chart-wrapper4" class="w-full" >
+                    <div id="chart4"></div>
+                  </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="sub2 basis-1/4 xs:basis-auto xs:grow sm:grow sm:basis-auto">
+             <div class="sub-title mt-4">
+              <h6 class="text-body text-gray-200">lorem sub title</h6>
+            </div>
+            <div class="bg-white">
+              <div class="inner-wrap flex bg-gray-900 p-4">
+                <div class="inner-title">
+                  <span class="text-small text-gray-300">lorem ipsum</span>
+                  <p class="text-h2 font-bold text-gray-100">3322</p>
+                </div>
+              </div>
+                <div class="bg-white inner-content p-4">
+
+                  <div class="image-marker-container image-marker-container relative flex justify-center">
+                    <img src="./images/info-map.svg" alt="지도 이미지" class="h-[300px]">
+                    <img src="./images/icon-location.svg" alt="마커1" class="marker-image absolute left-1/3 top-2/3 cursor-pointer" title="lorem1">
+                    <img src="./images/icon-location.svg" alt="마커2" class="marker-image absolute left-1/2 top-1/2 cursor-pointer" title="lorem2">
+                    <img src="./images/icon-location.svg" alt="마커3" class="marker-image absolute left-1/4 top-1/2 cursor-pointer" title="lorem3">
+                    <img src="./images/icon-location.svg" alt="마커4" class="marker-image absolute left-1/4 top-3/4 cursor-pointer" title="lorem4">
+                  </div>
+                  <ul class="spot-list grid grid-flow-col grid-rows-3">
+                    <li class="basis-1/2 text-gray-200"><span class="text-red-100 inline-block font-bold">1</span> lorem ipsum</li>
+                    <li class="basis-1/2 text-gray-200"><span class="text-red-100 inline-block font-bold">2</span> lorem </li>
+                    <li class="basis-1/2 text-gray-200"><span class="text-red-100 inline-block font-bold">3</span> ipsum</li>
+                    <li class="basis-1/2 text-gray-200"><span class="text-red-100 inline-block font-bold">4</span> ipsum lorem </li>
+                    <li class="basis-1/2 text-gray-200"><span class="text-red-100 inline-block font-bold">5</span> lorem um</li>
+                    <li class="basis-1/2 text-gray-200"><span class="text-red-100 inline-block font-bold">6</span> lore</li>
+                  </ul>
+                </div>
+            </div>
+
+          </div>
+           <div class="sub3 basis-1/4 xs:grow xs:basis-auto sm:grow sm:basis-auto">
+             <div class="sub-title mt-4">
+              <h6 class="text-body text-gray-200">lorem sub title</h6>
+            </div>
+            <div class="bg-white">
+              <div class="inner-wrap flex bg-gray-900 p-4">
+                <div class="inner-title">
+                  <span class="text-small text-gray-300">lorem ipsum</span>
+                  <p class="text-h2 font-bold text-gray-100">3322</p>
+                </div>
+              </div>
+                <div class="bg-white inner-content p-4">
+                 <div id="chart-wrapper5">
+                  <div id="chart5"></div>
+                 </div>
+                </div>
+            </div>
+
+          </div>
+        </section>        
+    </div>
+  </div>
+
+  <style>
+    #outer-chart,  #outer-chart2 {
+      position: absolute;
+      /* ApexCharts 옵션에서 width, height가 설정되므로 CSS에서 크기를 지정하지 않는 것이 좋습니다. */
+      /* CSS에서 크기를 지정하면 차트 라이브러리 설정과 충돌할 수 있습니다. */
+      top: 0%; /* chart-wrapper의 수직 중앙 */
+      left: 50%; /* chart-wrapper의 수평 중앙 */
+      transform: translate(-50%, -0%); /* #outer-chart 요소 자체의 중앙을 top, left 기준점에 맞춤 */
+    }
+
+    #inner-chart,#inner-chart2 {
+      position: absolute;
+      /* ApexCharts 옵션에서 width, height가 설정됨 */
+      top: 135px; /* chart-wrapper 상단으로부터 50px 아래에 위치 (고정값) */
+      left: 50%; /* chart-wrapper의 수평 중앙 */
+      transform: translateX(-50%); /* #inner-chart 요소 자체의 수평 중앙을 left 기준점에 맞춤 */
+      /* Y축 위치를 요소 자체의 중앙에 맞추려면 transform: translate(-50%, -50%); 를 사용하고 top 값을 조정할 수 있습니다. */
+      /* 예를 들어, top: 150px; transform: translate(-50%, -50%); 로 하면 wrapper 중앙보다 아래에 위치하게 됩니다. */
+    }
+  </style>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // 1. 외부 차트 (Chart 1)
+    var optionsOuter = {
+      series: [40, 20, 10, 30],
+      chart: {
+        type: 'donut',
+        width: 500, // 외부 차트 너비
+        height: 400 // 외부 차트 높이
+      },
+      title: {
+          text: 'lorem Chart title', // 여기에 원하시는 제목을 입력하세요.
+          align: 'left', // 'left', 'center', 'right' 중 정렬 방식 선택
+          margin: 10, // 차트와의 상단 여백 (기본값 10)
+          offsetY: 0, // 타이틀의 수직 위치 미세 조정 (필요시)
+          style: {
+            fontSize:  '14px', // 타이틀 폰트 크기
+            fontWeight:  'light', // 폰트 굵기
+            fontFamily:  'Roboto, Noto Sans KR, sans-serif', // 폰트 종류
+            color:  '#87898c' // 타이틀 색상
+          }
+        },
+      plotOptions: {
+        pie: {
+          startAngle: -90,
+          endAngle: 90,
+          offsetY: 30, // 반원 도넛의 Y축 위치 조정
+          donut: {
+            size: '55%', // 도넛의 구멍 크기
+            labels: { // 도넛 내부에 표시될 라벨 (기본 숨김, 필요시 show: true 및 상세 설정)
+              show: true,
+               value: {
+                show: true,
+                fontSize: '12px',
+                offsetY: -60,
+                fontFamily: 'Roboto, Noto Sans KR, sans-serif'
+               }
+              // name: { show: true, offsetY: -10 },
+              // value: { show: true, offsetY: 10, formatter: function (val) { return val + "%"; } },
+              // total: { show: true, label: 'Total Outer', formatter: function (w) { return w.globals.seriesTotals.reduce((a, b) => { return a + b }, 0) + '%' } }
+            }
+          }
+        }
+      },
+      colors: ['#3069b2', '#4277bc', '#6aa7da', '#85d5f7'], // Series 데이터 개수(4)에 맞춰 색상 4개 제공
+      labels: ['Series A', 'Series B', 'Series C', 'Series D'], // Series 데이터 개수(4)에 맞춰 레이블 4개 제공
+      legend: {
+        show: true,
+        position: 'right', // 범례를 차트 오른쪽에 표시
+        // offsetX: 0, // 필요시 범례 위치 미세 조정
+        // offsetY: 0,
+      },
+      dataLabels: {
+        enabled: true,
+         formatter: function (val, opts) {
+          // 'val'은 해당 조각의 시리즈 값입니다.
+          // opts.w.config.series[opts.seriesIndex] 와 동일.
+          // 이 값을 퍼센트로 표시하려면 여기서 처리합니다.
+          // 예시: val이 이미 퍼센트 값이라고 가정하고 '%' 기호만 붙입니다.
+          return val + "%"; 
+        },
+      },
+        style: {
+          fontSize: '8px', // <--- 원하는 폰트 크기로 조절하세요 (예: '8px', '12px')
+          fontFamily: 'Roboto, Noto Sans KR, sans-serif',
+          fontWeight: 'bold', // 텍스트를 굵게 하여 흰색 배경에서 더 잘 보이도록 (선택 사항)
+          colors: ["#fff"] // <--- 텍스트 색상을 흰색으로 지정
+        },
+        dropShadow: { // 텍스트 가독성을 높이기 위한 그림자 효과 (선택 사항)
+        enabled: false,}
+    };
+
+    var chartOuter = new ApexCharts(document.querySelector("#outer-chart"), optionsOuter);
+    chartOuter.render();
+
+    // 2. 내부 차트 (Chart 2)
+   var optionsInner = {
+  series: [30, 15, 25, 30],
+  chart: {
+    type: 'donut',
+    width: 250, // 내부 차트 너비
+    height: 200, // 내부 차트 높이
+    offsetX: -50,  // <--- 이 값을 조절해보세요. (예: -5, 5, -10, 10 등)
+                 // 음수 값은 차트를 왼쪽으로, 양수 값은 오른쪽으로 이동시킵니다.
+  },
+  plotOptions: {
+    pie: {
+      startAngle: -90,
+      endAngle: 90,
+      offsetY: 10, // 반원 도넛의 Y축 위치 조정
+      donut: {
+        size: '65%', // 내부 도넛의 구멍 크기
+        labels: { // 도넛 내부에 표시될 라벨 (기본 숨김)
+          show: true,
+               value: {
+                show: true,
+                offsetY: -50,
+                fontSize: '12px',
+                fontFamily: 'Roboto, Noto Sans KR, sans-serif'
+               }
+        }
+      }
+    }
+  },
+  colors: ['#3069b2', '#4277bc', '#6aa7da', '#85d5f7'],
+  labels: ['Metric X', 'Metric Y', 'Metric Z', 'Metric G'],
+  legend: {
+    show: false, // 내부 차트의 범례는 숨김
+    position: 'right',
+  },
+};
+
+    var chartInner = new ApexCharts(document.querySelector("#inner-chart"), optionsInner);
+    chartInner.render();
+
+     // 1. 외부 차트 (Chart 1)
+    var optionsOuter2 = {
+      series: [40, 20, 10, 30],
+      chart: {
+        type: 'donut',
+        width: 500, // 외부 차트 너비
+        height: 400 // 외부 차트 높이
+      },
+         title: {
+          text: 'lorem Chart title', // 여기에 원하시는 제목을 입력하세요.
+          align: 'left', // 'left', 'center', 'right' 중 정렬 방식 선택
+          margin: 10, // 차트와의 상단 여백 (기본값 10)
+          offsetY: 0, // 타이틀의 수직 위치 미세 조정 (필요시)
+          style: {
+            fontSize:  '14px', // 타이틀 폰트 크기
+            fontWeight:  'light', // 폰트 굵기
+            fontFamily:  'Roboto, Noto Sans KR, sans-serif', // 폰트 종류
+            color:  '#87898c' // 타이틀 색상
+          }
+        },
+      plotOptions: {
+        pie: {
+          startAngle: -90,
+          endAngle: 90,
+          offsetY: 30, // 반원 도넛의 Y축 위치 조정
+          donut: {
+            size: '55%', // 도넛의 구멍 크기
+            labels: { // 도넛 내부에 표시될 라벨 (기본 숨김, 필요시 show: true 및 상세 설정)
+              show: true,
+               value: {
+                show: true,
+                fontSize: '12px',
+                offsetY: -50,
+                fontFamily: 'Roboto, Noto Sans KR, sans-serif'
+               }
+              // name: { show: true, offsetY: -10 },
+              // value: { show: true, offsetY: 10, formatter: function (val) { return val + "%"; } },
+              // total: { show: true, label: 'Total Outer', formatter: function (w) { return w.globals.seriesTotals.reduce((a, b) => { return a + b }, 0) + '%' } }
+            }
+          }
+        }
+      },
+      colors: ['#00af9d', '#38bca7', '#83cec4', '#3cbeb7'], // Series 데이터 개수(4)에 맞춰 색상 4개 제공
+      labels: ['Series A', 'Series B', 'Series C', 'Series D'], // Series 데이터 개수(4)에 맞춰 레이블 4개 제공
+      legend: {
+        show: true,
+        position: 'right', // 범례를 차트 오른쪽에 표시
+        // offsetX: 0, // 필요시 범례 위치 미세 조정
+        // offsetY: 0,
+      },
+      dataLabels: {
+        enabled: true,
+         formatter: function (val, opts) {
+          // 'val'은 해당 조각의 시리즈 값입니다.
+          // opts.w.config.series[opts.seriesIndex] 와 동일.
+          // 이 값을 퍼센트로 표시하려면 여기서 처리합니다.
+          // 예시: val이 이미 퍼센트 값이라고 가정하고 '%' 기호만 붙입니다.
+          return val + "%"; 
+        },
+      },
+        style: {
+          fontSize: '8px', // <--- 원하는 폰트 크기로 조절하세요 (예: '8px', '12px')
+          fontFamily: 'Roboto, Noto Sans KR, sans-serif',
+          fontWeight: 'bold', // 텍스트를 굵게 하여 흰색 배경에서 더 잘 보이도록 (선택 사항)
+          colors: ["#fff"] // <--- 텍스트 색상을 흰색으로 지정
+        },
+        dropShadow: { // 텍스트 가독성을 높이기 위한 그림자 효과 (선택 사항)
+        enabled: false,}
+    };
+
+    var chartOuter2 = new ApexCharts(document.querySelector("#outer-chart2"), optionsOuter2);
+    chartOuter2.render();
+
+    // 2. 내부 차트 (Chart 2)
+   var optionsInner2 = {
+  series: [30, 15, 25, 30],
+  chart: {
+    type: 'donut',
+    width: 250, // 내부 차트 너비
+    height: 200, // 내부 차트 높이
+    offsetX: -50,  // <--- 이 값을 조절해보세요. (예: -5, 5, -10, 10 등)
+                 // 음수 값은 차트를 왼쪽으로, 양수 값은 오른쪽으로 이동시킵니다.
+  },
+
+  plotOptions: {
+    pie: {
+      startAngle: -90,
+      endAngle: 90,
+      offsetY: 10, // 반원 도넛의 Y축 위치 조정
+      donut: {
+        size: '65%', // 내부 도넛의 구멍 크기
+        labels: { // 도넛 내부에 표시될 라벨 (기본 숨김)
+          show: true,
+               value: {
+                show: true,
+                offsetY: -50,
+                fontSize: '12px',
+                fontFamily: 'Roboto, Noto Sans KR, sans-serif'
+               }
+        }
+      }
+    }
+  },
+  colors: ['#00af9d', '#38bca7', '#83cec4', '#3cbeb7'],
+  labels: ['Metric X', 'Metric Y', 'Metric Z', 'Metric G'],
+  legend: {
+    show: false, // 내부 차트의 범례는 숨김
+    position: 'right',
+  },
+};
+
+    var chartInner2 = new ApexCharts(document.querySelector("#inner-chart2"), optionsInner2);
+    chartInner2.render();
+
+    // `positionInnerChart` 함수는 현재 CSS가 차트 위치를 결정하므로,
+    // JavaScript를 통한 추가적인 동적 위치 조정이 필요 없다면 이 함수는 생략해도 됩니다.
+    // 만약 두 차트 간의 Y축 간격을 JavaScript로 정밀하게 제어하고 싶다면 이 함수를 활용할 수 있습니다.
+    /*
+    function positionInnerChart() {
+      // 이 함수는 현재 CSS 설정으로 인해 X축 중앙 정렬이 이미 이루어지고 있으므로,
+      // Y축 위치를 동적으로 조정할 필요가 있을 때 사용합니다.
+      // 예를 들어, 외부 차트의 실제 렌더링된 높이를 기준으로 내부 차트의 top 값을 설정하는 등의 로직을 추가할 수 있습니다.
+      console.log("positionInnerChart function called - currently no dynamic positioning logic.");
+    }
+
+    // 초기 로드 및 창 크기 변경 시 positionInnerChart 함수 호출 (필요한 경우)
+    // window.onload = function() {
+    //   if (typeof positionInnerChart === 'function') {
+    //     // 차트가 완전히 렌더링된 후 호출하기 위해 약간의 지연 시간을 줄 수 있습니다.
+    //     setTimeout(positionInnerChart, 500); 
+    //     window.addEventListener('resize', positionInnerChart);
+    //   }
+    // };
+    */
+
+
+    /* Area Chart */
+    
+        var options3 = {
+          series: [{
+          name: "STOCK ABC",
+          data: [30,40,25,50,49,50,70,91,125,100]
+        }],
+          chart: {
+          type: 'area',
+          height: 350,
+          toolbar: 'false',
+          zoom: {
+            enabled: false
+          },
+         
+        },
+         colors: ['#85d5f7'],
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'straight'
+        },
+        
+        title: {
+          text: 'Fundamental Analysis of Stocks',
+          align: 'left'
+        },
+        subtitle: {
+          text: 'Price Movements',
+          align: 'left'
+        },
+        //labels: [1,2,3,4,5,6,7,8,9,10],
+        xaxis: {
+          // type: 'datetime', // datetime 대신 category로 변경
+          type: 'category',
+          categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], // X축에 표시할 카테고리 목록
+          // 또는 labels에 있던 숫자들을 사용하려면:
+          // categories: [1,2,3,4,5,6,7,8,9,10].map(String) // 숫자를 문자열로 변환
+          // 또는 의미 있는 다른 문자열 배열: ['Jan', 'Feb', 'Mar', ...]
+          labels: {
+          style: {
+          colors: '#cccccc', // X축 텍스트(레이블) 색상을 원하는 색으로 변경 (예: 핑크 계열)
+          fontSize: '12px', // 필요시 폰트 크기도 조절 가능
+          // fontFamily: 'Arial, sans-serif', // 필요시 폰트 종류도 조절 가능
+          // fontWeight: 600, // 필요시 폰트 굵기도 조절 가능
+        }
+    }
+        },
+        yaxis: {
+          opposite: true,
+          labels: {
+            style: {
+              colors: '#cccccc', // Y축 텍스트(레이블) 색상을 원하는 색으로 변경 (예: 주황 계열)
+              fontSize: '12px', // 필요시 폰트 크기 조절
+              // fontFamily: 'Arial, sans-serif',
+              // fontWeight: 400,
+            }
+            // formatter: function (value) { // 필요시 Y축 값 포맷 변경
+            //   return value + "$";
+            // }
+          }
+        },
+        legend: {
+          horizontalAlign: 'left'
+        }
+        };
+
+        var chart3 = new ApexCharts(document.querySelector("#chart3"), options3);
+        chart3.render();
+
+         var options4 = {
+          series: [{
+          name: 'series1',
+          data: [31, 40, 28, 51, 42, 109, 100],
+          
+        },
+       
+        {
+          name: 'series2',
+          data: [11, 32, 45, 32, 34, 52, 41]
+        }],
+          chart: {
+          height: 350,
+          type: 'area',
+          toolbar: 'false',
+        },
+        colors: ['#83cec4', '#6aa7da'],
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'smooth'
+        },
+        xaxis: {
+          type: 'datetime',
+          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+        },
+        tooltip: {
+          x: {
+            format: 'dd/MM/yy HH:mm'
+          },
+        },
+        };
+
+        var chart4 = new ApexCharts(document.querySelector("#chart4"), options4);
+        chart4.render();
+
+
+         var options5 = {
+          series: [{
+          data: [400, 430, 448, 470, 540, 580, 690]
+        }],
+          chart: {
+          type: 'bar',
+          height: 350,
+          toolbar: 'false',
+        },
+        colors: ['#3069b2'],
+        annotations: {
+          xaxis: [{
+            x: 500,
+            borderColor: '#00af9d',
+            label: {
+              borderColor: '#00af9d',
+              style: {
+                color: '#fff',
+                background: '#00af9d',
+              },
+              text: 'X annotation',
+            }
+          }],
+          yaxis: [{
+            y: 'July',
+            y2: 'September',
+            label: {
+              text: 'Y annotation'
+            }
+          }]
+        },
+        plotOptions: {
+          bar: {
+            horizontal: true,
+          }
+        },
+        dataLabels: {
+          enabled: true
+        },
+        xaxis: {
+          categories: ['June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        },
+        grid: {
+          xaxis: {
+            lines: {
+              show: true
+            }
+          }
+        },
+        yaxis: {
+          reversed: true,
+          axisTicks: {
+            show: true
+          }
+        }
+        };
+
+        var chart5 = new ApexCharts(document.querySelector("#chart5"), options5);
+        chart5.render();
+      
+  });
+  </script>
+</body>
+</html>
